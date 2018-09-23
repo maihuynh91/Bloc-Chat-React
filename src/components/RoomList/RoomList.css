@@ -1,6 +1,6 @@
 .sidenav {
     height: 100%;
-    width: 180px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -21,3 +21,26 @@
     color: #d11919;
 }
 
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+    max-height: 350px
+}
+
+.card {
+    background-color: rgb(192, 178, 178);
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 150px;
+    border-radius: 2px;}
+
+
+.card-container.card .form-title{
+    font-size: 25px;
+    color: inherit;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.card *{
+    margin:5px;
+}
