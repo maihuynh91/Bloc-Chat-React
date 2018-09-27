@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './RoomList.css';
 
 
+
 class RoomList extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,8 @@ class RoomList extends Component {
       rooms: [],
       value: "",
       openedForm: false,
-      isPageLoaded: false
+      isPageLoaded: false, 
+     
     }
 
     this.roomsRef = this.props.roomListFirebase.database().ref('rooms'); //firebase reference
@@ -42,6 +44,7 @@ class RoomList extends Component {
       this.roomsRef.push({
         name: this.state.value
       })
+      this.setState({openedForm:false})
     }
     this.setState({ value: "" })
   }
@@ -65,15 +68,14 @@ class RoomList extends Component {
           <h1>Bloc Chat</h1>
           <button onClick={() => this.createRoom()} >Create Room</button>
           {this.state.rooms.map((room) => {
-            return (
-              <a key={room.key}>{room.name}</a>
+            return (       
+              <a onClick={() => this.props.checkCurrentRoom(room)} key={room.key}>{room.name}</a>       
             )
-          }
-          )}
+          })}
         </div>
       )
     }
-  }
+     }
 
   renderAddRoomForm() {
     if (this.state.openedForm === true) {
@@ -98,8 +100,10 @@ class RoomList extends Component {
   render() {
     return (
       <div>
+ 
         {this.checkPageLoaded()}
         {this.renderAddRoomForm()}
+        
       </div>
 
     )
