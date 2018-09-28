@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './CreateMessage.css'
 
 class CreateMessage extends Component{
     constructor(props){
@@ -35,7 +36,7 @@ class CreateMessage extends Component{
         return(
             <div>
 
-              <button onClick = {(e)=>this.openNewMessageBox(e)}>New Message</button>
+              <button className="btn1" onClick = {(e)=>this.openNewMessageBox(e)}>New Message</button>
               {this.renderNewMessageForm()}
 
             </div>

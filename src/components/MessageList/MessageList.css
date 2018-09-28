@@ -1,0 +1,39 @@
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 5px 0;
+    width: 800px;
+    float: right;
+    height: 80px
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.left {
+    float: left;
+    color: #999;
+}
+.chat-room {
+    top: 300px;
+    text-align: center;
+}

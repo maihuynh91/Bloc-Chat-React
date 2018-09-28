@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList/RoomList';
-import MessageList from './components/MessageList';
-
+import MessageList from './components/MessageList/MessageList';
+import User from './components/User/User';
 
 
 // Initialize Firebase
@@ -17,30 +17,32 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {currentRoom: "",
-                  roomId: ""
+    this.state = {currentRoom:null,
+                  user: {displayName:"Guest"}
                  }
   }
 
   handleCurrentRoom(room){
-    this.setState({currentRoom: room.name,
-                  roomId: room.key
-                 });
-    console.log("This is room key: " + room.key)
+    this.setState({currentRoom: room});
   }
-
+  
+//bind, called from User component
+  setUser=(user)=>{
+    this.setState({user: user})
+    console.log("this is user from App: " + user)
+  }
+    
   render() {
     return (
     
       <div className="App">
 
         <RoomList  roomListFirebase={firebase} checkCurrentRoom={(room) => this.handleCurrentRoom(room)}/>
-        <MessageList messageListFirebase ={firebase} currentRoom = {this.state.currentRoom} />
-        
+        <MessageList messageListFirebase ={firebase} currentRoom = {this.state.currentRoom} user={this.state.user}/>
+        <User firebase = {firebase} setUser = {this.setUser} user = {this.state.user}/>
       
       </div>
     );
