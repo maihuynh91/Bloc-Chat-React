@@ -18,7 +18,7 @@
 }
 
 .sidenav a:hover {
-    color: #d11919;
+    color: #110327;
 }
 
 .card-container.card {
@@ -43,4 +43,12 @@
 }
 .card *{
     margin:5px;
+}
+
+.delete{
+    color: rgb(192, 178, 178)
+}
+
+.delete p:hover {
+    color: aqua
 }

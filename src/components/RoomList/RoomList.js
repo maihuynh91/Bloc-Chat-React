@@ -83,7 +83,7 @@ class RoomList extends Component {
             return (  
               <div key={room.key}>     
              <a onClick={()=>this.props.checkCurrentRoom(room)}>{room.name}</a>  
-             <p onClick = {(e) => this.handleDelete(e, room.key)}>X</p>
+             <p className="delete" onClick = {(e) => this.handleDelete(e, room.key)}>Delete</p>
               </div>   
             )
           })}

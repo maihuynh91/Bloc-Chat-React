@@ -17,6 +17,7 @@
 }
 .message-main div{
     margin:10px;
+    text-align: left
 }
 .message-time {
     display: inline-block;
@@ -38,4 +39,5 @@
 .bold{
     font-weight: bold;
     font-size: 110%;
+    text-align: left
 }
