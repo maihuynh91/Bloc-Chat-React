@@ -58,10 +58,14 @@ class MessageList extends Component {
                     {this.state.messages.map((message) => {
                         if (message.roomId === this.props.currentRoom.key) {
                             return (
-                                <div className="container" key={message.key}>
-                                    <p className="left">{message.username}</p>
-                                    <p>{message.content}</p>
-                                    <span className="time-right"><Moment interval={0}>{message.sentAt}</Moment></span>
+                                <div key={message.key} className="message">
+                                     <div className="message-main">
+                                        <div className="bold">{message.username}</div>
+                                        <div>{message.content}</div>
+                                    </div>
+                                    <div className="message-time">
+                                        <span><Moment interval={0}>{message.sentAt}</Moment></span>
+                                    </div>
                                 </div>
                             )
                         }

@@ -1,39 +1,41 @@
-.container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 2px;
-    margin: 5px 0;
-    width: 800px;
-    float: right;
-    height: 80px
+
+
+
+.message{
+    margin:5px;
+    border-radius: 25px;
+    font-size: 90%;
+    width: 950px
+    
+}
+.message-main {
+    display: inline-block;
+    margin: 5px 20px;
+    width: 65%;
+    vertical-align: middle;
+    
+}
+.message-main div{
+    margin:10px;
+}
+.message-time {
+    display: inline-block;
 }
 
-/* Darker chat container */
-.darker {
-    border-color: #ccc;
-    background-color: #ddd;
+.message .message-main .message-time{
+    height:60px;
+    padding:2px;
+}
+.message:nth-of-type(odd) {
+    background-color: grey;
+    color:white;
 }
 
-/* Clear floats */
-.container::after {
-    content: "";
-    clear: both;
-    display: table;
+.message:nth-of-type(even) {
+    background-color: lightgray;
+    color:black;
 }
-
-/* Style time text */
-.time-right {
-    float: right;
-    color: #aaa;
-}
-
-/* Style time text */
-.left {
-    float: left;
-    color: #999;
-}
-.chat-room {
-    top: 300px;
-    text-align: center;
+.bold{
+    font-weight: bold;
+    font-size: 110%;
 }

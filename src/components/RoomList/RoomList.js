@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './RoomList.css';
 
-
-
 class RoomList extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +47,20 @@ class RoomList extends Component {
     this.setState({ value: "" })
   }
 
+  handleDelete(e, key){
+    e.preventDefault();
+    console.log(e)
+    this.roomsRef.child(key).remove();
+    const rooms = this.state.rooms.filter((room)=>room.key !== key )
+    this.setState({rooms: rooms})
+   /* this.props.roomListFirebase.database().ref('/rooms/' + key).once('value') // pull specific room object
+    .then((snapshot)=> {
+      let room = snapshot.val()
+      console.log(room)
+      room.remove()})*/
+
+  }
+
   handleCancel() {
     this.setState({
       openedForm: false,
@@ -68,8 +80,11 @@ class RoomList extends Component {
           <h1>Bloc Chat</h1>
           <button onClick={() => this.createRoom()} >Create Room</button>
           {this.state.rooms.map((room) => {
-            return (       
-              <a onClick={() => this.props.checkCurrentRoom(room)} key={room.key}>{room.name}</a>       
+            return (  
+              <div key={room.key}>     
+             <a onClick={()=>this.props.checkCurrentRoom(room)}>{room.name}</a>  
+             <p onClick = {(e) => this.handleDelete(e, room.key)}>X</p>
+              </div>   
             )
           })}
         </div>
